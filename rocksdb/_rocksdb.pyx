@@ -1258,6 +1258,12 @@ cdef class Options(ColumnFamilyOptions):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
+    property create_missing_column_families:
+        def __get__(self):
+            return self.opts.create_missing_column_families
+        def __set__(self, value):
+            self.opts.create_missing_column_families = value
+
     property create_if_missing:
         def __get__(self):
             return self.opts.create_if_missing
